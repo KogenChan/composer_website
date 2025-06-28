@@ -1,0 +1,227 @@
+:root {
+    --primary: #021823;
+    --secondary: #191919;
+    --accent: #fff6c8;
+    --accent-light: #faf7e8;
+}
+
+.primary-bg {
+    background-color: var(--primary);
+}
+
+.primary-text {
+    color: var(--primary);
+}
+
+.primary-border {
+    border-color: var(--primary);
+}
+
+.secondary-bg {
+    background-color: var(--secondary);
+}
+
+.secondary-text {
+    color: var(--secondary);
+}
+
+.secondary-border {
+    border-color: var(--secondary);
+}
+
+.accent-bg {
+    background-color: var(--accent);
+}
+
+.accent-text {
+    color: var(--accent);
+}
+
+.accent-border {
+    border-color: var(--accent);
+}
+
+.accent-light-bg {
+    background-color: var(--accent-light);
+}
+
+.accent-light-text {
+    color: var(--accent-light);
+}
+
+.accent-light-border {
+    border-color: var(--accent-light);
+}
+
+@font-face {
+    font-family: "Wix Display";
+    src: url('../fonts/WixMadeforDisplay.ttf');
+    font-optical-sizing: auto;
+}
+
+@font-face {
+    font-family: "Wix Text";
+    src: url('../fonts/WixMadeforText-VariableFont_wght.ttf');
+    font-optical-sizing: auto;
+}
+
+@font-face {
+    font-family: "Wix Text Italic";
+    src: url('../fonts/WixMadeforText-Italic-VariableFont_wght.ttf');
+    font-optical-sizing: auto;
+}
+
+.wix-display {
+    font-family: 'Wix Display', sans-serif;
+}
+
+.wix-text {
+    font-family: 'Wix Text', sans-serif;
+}
+
+.wix-text-italic {
+    font-family: 'Wix Text Italic', sans-serif;
+}
+
+.text-shadow {
+    text-shadow: 0 0 3px #000;
+}
+
+.fs-18 {
+    font-size: 18px !important;
+}
+
+/* ! CONTAINER */
+
+.container {
+    max-width: 960px;
+}
+
+
+/* ! HEADER */
+
+.header {
+    background-image: url('/Resources/media/cover_16_9.jpg');
+    background-position: 85% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 45vh;
+}
+
+.header-row {
+    min-height: 45vh;
+}
+
+/* ! NAVBAR */
+
+.nav-link {
+    font-weight: 600 !important;
+    transition: 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+    padding: 0px auto;
+}
+
+.nav-link:hover {
+    color: var(--accent) !important;
+}
+
+.nav-icon {
+    font-size: 20px;
+    margin: auto;
+}
+
+.navbar-toggler {
+    transition: 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.toggler-icon {
+    opacity: 1;
+    transition: 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.opacity {
+    opacity: 0;
+}
+
+
+/* !PORTFOLIO */
+
+.portfolio {
+    background-image: url('/Resources/media/mixerConsole.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* !CREDITS */
+
+.credits {
+    min-height: 50vh;
+    background-color: var(--secondary);
+}
+
+
+/* !ABOUT */
+
+.about {
+    min-height: 100vh;
+    background-color: var(--primary);
+}
+
+
+/* !CONTACT */
+
+.contact {
+    min-height: 100vh;
+    background-color: var(--secondary);
+}
+
+
+
+/* ! MEDIA QUERIES */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .header {
+        min-height: 75vh;
+    }
+    
+    .header-row {
+        min-height: 75vh;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .header {
+        min-height: 100vh;
+    }
+    
+    .header-row {
+        min-height: 100vh;
+    }
+    
+    .nav-link {
+        margin: auto;
+    }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    
+}
