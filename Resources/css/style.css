@@ -105,12 +105,21 @@
     background-position: 85% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 45vh;
+    min-height: 30vh;
+    max-height: 100vh;
 }
 
 .header-row {
     min-height: 45vh;
 }
+
+
+/* ! HEADER MOBILE */
+
+.header-mobile {
+    background-color: var(--primary);
+}
+
 
 /* ! NAVBAR */
 

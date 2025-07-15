@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luca Simone - Game & Film Composer</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/Resources/CSS/app.css">
 </head>
 <body class="secondary-bg">
@@ -12,32 +13,38 @@
         <header class="container px-3 px-md-auto">
             
             <!-- # NAVBAR -->
-            <nav class="navbar position-absolute navbar-expand-lg bg-none py-3 py-md-4 py-lg-5">
-                <h3 class="wix-display text-white text-shadow pe-5 my-0">LUCA <accent class="accent-text">SIMONE</accent></h3>
-                <button class="position-relative navbar-toggler p-0 pe-4 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="position-absolute top-50 start-50 translate-middle toggler-icon bi bi-list fs-1 text-white text-shadow border-0"></i>
-                    <i class="position-absolute top-50 start-50 translate-middle opacity toggler-icon bi bi-x fs-1 text-white text-shadow border-0"></i>
-                </button>
-                <div class="collapse navbar-collapse pt-3 pt-lg-0" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link w-25 text-start text-white wix-display me-lg-2" href="#"><p class="m-0">Music</p></a>
-                        <a class="nav-link w-25 text-start text-white wix-display me-lg-2" href="#"><p class="m-0">About</p></a>
-                        <a class="nav-link w-25 text-start text-white wix-display me-lg-3" href="#"><p class="m-0">Contact</p></a>
-                        <a class="nav-link w-25 text-white wix-display" target="_blank" href="https://www.linkedin.com/in/luca-simone-composer/">
-                            <i class="fa-brands nav-icon pt-1 fa-linkedin"></i>
-                        </a>
-                        <a class="nav-link w-25 text-white wix-display" target="_blank" href="https://soundcloud.com/lucasimonecomposer/sets">
-                            <i class="fa-brands nav-icon pt-1 fa-soundcloud"></i>
-                        </a>
-                        <a class="nav-link w-25 text-white wix-display" target="_blank" href="https://www.instagram.com/lucasimone_composer/">
-                            <i class="fa-brands nav-icon pt-1 fa-instagram"></i>
-                        </a>
-                    </div>
+            <div class="row"  data-aos="fade-down" data-aos-duration="1500">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg bg-none px-2 px-md-0 py-4 py-md-4 py-lg-5">
+                        <h3 class="wix-display text-white text-shadow pe-5 my-0">LUCA <accent class="accent-text">SIMONE</accent></h3>
+                        <button class="position-relative navbar-toggler p-0 pe-4 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="position-absolute top-50 start-50 translate-middle toggler-icon bi bi-list fs-1 text-white text-shadow border-0"></i>
+                            <i class="position-absolute top-50 start-50 translate-middle opacity toggler-icon bi bi-x fs-1 text-white text-shadow border-0"></i>
+                        </button>
+                        <div class="collapse navbar-collapse pt-3 pt-lg-0" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link text-start text-shadow text-white wix-display me-lg-2" href="#"><p class="m-0">Music</p></a>
+                                <a class="nav-link text-start text-shadow text-white wix-display me-lg-2" href="#"><p class="m-0">About</p></a>
+                                <a class="nav-link text-start text-shadow text-white wix-display me-lg-3" href="#"><p class="m-0">Contact</p></a>
+                                <div class="d-flex flex-row gap-3 gap-lg-1">
+                                    <a class="nav-link text-white wix-display" target="_blank" href="https://www.linkedin.com/in/luca-simone-composer/">
+                                        <i class="fa-brands nav-icon pt-1 fa-linkedin"></i>
+                                    </a>
+                                    <a class="nav-link text-white wix-display" target="_blank" href="https://soundcloud.com/lucasimonecomposer/sets">
+                                        <i class="fa-brands nav-icon pt-1 fa-soundcloud"></i>
+                                    </a>
+                                    <a class="nav-link text-white wix-display" target="_blank" href="https://www.instagram.com/lucasimone_composer/">
+                                        <i class="fa-brands nav-icon pt-1 fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
+            </div>
             
-            <!-- # HEADER -->
-            <div class="row align-items-center header-row">
+            <!-- # HEADER DESKTOP -->
+            <div class="row align-items-center header-row d-none d-lg-flex" data-aos="fade-up" data-aos-duration="1500">
                 <div class="col-12 col-md-5">
                     <h1 class="accent-text wix-display text-shadow display-4 mb-5">LUCA SIMONE</h1>
                     <p class="wix-display fs-18 text-white  text-shadow mb-5 pb-5">
@@ -49,19 +56,35 @@
             </div>
         </header>
     </div>
-
+    
+    <!-- # HEADER MOBILE -->
+    <section class="header-mobile">
+        <div class="container">
+            <div class="row align-items-center d-flex d-lg-none py-4 px-2 px-md-0">
+                <div class="col-12 py-3">
+                    <h1 class="accent-text wix-display display-5 mb-3 text-center" data-aos="fade-right" data-aos-duration="1500">LUCA SIMONE</h1>
+                    <p class="wix-display text-white pb-0 mb-0" data-aos="fade-left" data-aos-duration="1500">
+                        is an Italian <strong>composer</strong> of music for <strong>videogames</strong>, <strong>film</strong> and <strong>TV</strong>.
+                        
+                        Their compositional style draws on a lifetime of exploration in cinematic, EDM, and world music. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="portfolio min-vh-100">
         <div class="container px-3 px-md-auto"></div>
     </section>
-
+    
     <section class="credits">
         <div class="container px-3 px-md-auto"></div>
     </section>
-
+    
     <section class="about">
         <div class="container px-3 px-md-auto"></div>
     </section>
-
+    
     <section class="contact">
         <div class="container px-3 px-md-auto"></div>
     </section>
@@ -69,6 +92,10 @@
     
     <script src="/Resources/JS/main.js"></script>
     <script src="/Resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://kit.fontawesome.com/d318e8c39b.js" crossorigin="anonymous"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
