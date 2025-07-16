@@ -91,6 +91,17 @@
     font-size: 18px !important;
 }
 
+.section-title {
+    font-family: 'Wix Display', sans-serif;
+    color: var(--accent-light);
+    font-size: 45px;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
 /* ! CONTAINER */
 
 .container {
@@ -172,6 +183,10 @@
 .credits {
     min-height: 50vh;
     background-color: var(--secondary);
+}
+
+.credit-img {
+    width: 100%;
 }
 
 
