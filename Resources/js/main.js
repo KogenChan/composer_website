@@ -29,12 +29,12 @@ async function getCredits() {
 
         credits.forEach(credit => {
             credits_section.innerHTML += `
-                <div class="col-6 col-lg-4 col-xl-3 pb-5" 
+                <div class="col-6 col-lg-4 col-xl-3 pb-2 pb-md-4 px-1 d-flex flex-column align-items-center" 
                     data-aos="fade-left" 
                     data-aos-duration="1500" 
                     data-aos-delay="${delay}">
                     <img class="credit-img" src="${credit.img}" alt="${credit.name}">
-                    <p class="text-white pt-1">${credit.role}</p>
+                    <small class="text-white credits-role text-center wix-text pt-1 pt-md-2">${credit.role}</small>
                 </div>
             `;
             delay = Math.round(((delay + 250) * 0.9) / 50) * 50;

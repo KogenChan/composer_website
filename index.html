@@ -10,10 +10,10 @@
 <body class="secondary-bg">
     
     <div class="header">
-        <header class="container px-3 px-md-auto">
+        <header class="container px-4 px-md-auto position-relative">
             
-            <!-- # NAVBAR -->
-            <div class="row"  data-aos="fade-down" data-aos-duration="1500">
+            <!-- # NAVBAR DESKTOP-->
+            <div class="z-3 d-none d-lg-flex row position-absolute"  data-aos="fade-down" data-aos-duration="1500">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg bg-none px-2 px-md-0 py-4 py-md-4 py-lg-5">
                         <h3 class="wix-display text-white text-shadow pe-5 my-0">LUCA <accent class="accent-text">SIMONE</accent></h3>
@@ -43,11 +43,42 @@
                 </div>
             </div>
             
+            <!-- # NAVBAR MOBILE-->
+            <div class="d-flex d-lg-none row"  data-aos="fade-down" data-aos-duration="1500">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg bg-none px-0 px-md-0 py-3">
+                        <h3 class="wix-display text-white text-shadow pe-5 my-1">LUCA <accent class="accent-text">SIMONE</accent></h3>
+                        <button class="position-relative navbar-toggler p-0 pe-4 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="position-absolute top-50 start-50 translate-middle toggler-icon bi bi-list fs-1 text-white text-shadow border-0"></i>
+                            <i class="position-absolute top-50 start-50 translate-middle opacity toggler-icon bi bi-x fs-1 text-white text-shadow border-0"></i>
+                        </button>
+                        <div class="collapse navbar-collapse pt-3 pt-lg-0" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link text-start text-shadow text-white wix-display me-lg-2" href="#"><p class="m-0">Music</p></a>
+                                <a class="nav-link text-start text-shadow text-white wix-display me-lg-2" href="#"><p class="m-0">About</p></a>
+                                <a class="nav-link text-start text-shadow text-white wix-display me-lg-3" href="#"><p class="m-0">Contact</p></a>
+                                <div class="d-flex flex-row gap-3 gap-lg-1">
+                                    <a class="nav-link text-white wix-display" target="_blank" href="https://www.linkedin.com/in/luca-simone-composer/">
+                                        <i class="fa-brands nav-icon pt-1 fa-linkedin"></i>
+                                    </a>
+                                    <a class="nav-link text-white wix-display" target="_blank" href="https://soundcloud.com/lucasimonecomposer/sets">
+                                        <i class="fa-brands nav-icon pt-1 fa-soundcloud"></i>
+                                    </a>
+                                    <a class="nav-link text-white wix-display" target="_blank" href="https://www.instagram.com/lucasimone_composer/">
+                                        <i class="fa-brands nav-icon pt-1 fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            
             <!-- # HEADER DESKTOP -->
-            <div class="row align-items-center header-row d-none d-lg-flex" data-aos="fade-up" data-aos-duration="1500">
+            <div class="row align-items-center header-row d-none d-lg-flex" data-aos="fade-left" data-aos-duration="1500">
                 <div class="col-12 col-md-5">
                     <h1 class="accent-text wix-display text-shadow display-4 mb-5">LUCA SIMONE</h1>
-                    <p class="wix-display fs-18 text-white  text-shadow mb-5 pb-5">
+                    <p class="wix-display fs-18 text-white text-shadow mb-0 pb-0">
                         is an Italian <strong>composer</strong> of music for <strong>videogames</strong>, <strong>film</strong> and <strong>TV</strong>.
                         
                         Their compositional style draws on a lifetime of exploration in cinematic, EDM, and world music. 
@@ -60,10 +91,10 @@
     <!-- # HEADER MOBILE -->
     <section class="header-mobile">
         <div class="container">
-            <div class="row align-items-center d-flex d-lg-none py-4 px-2 px-md-0">
-                <div class="col-12 py-3">
+            <div class="row align-items-center d-flex d-lg-none py-4 px-4 px-md-0">
+                <div class="col-12 py-3 px-0">
                     <h1 class="accent-text wix-display display-5 mb-3 text-center" data-aos="fade-right" data-aos-duration="1500">LUCA SIMONE</h1>
-                    <p class="wix-display text-white pb-0 mb-0" data-aos="fade-left" data-aos-duration="1500">
+                    <p class="wix-display fs-18 text-white pb-0 mb-0" data-aos="fade-left" data-aos-duration="1500">
                         is an Italian <strong>composer</strong> of music for <strong>videogames</strong>, <strong>film</strong> and <strong>TV</strong>.
                         
                         Their compositional style draws on a lifetime of exploration in cinematic, EDM, and world music. 
@@ -73,33 +104,58 @@
         </div>
     </section>
     
-    <section class="portfolio min-vh-100">
-        <div class="container px-3 px-md-auto">
+
+    <!-- # PORTFOLIO -->
+    <main class="portfolio min-vh-100">
+        <div class="container px-4 px-md-auto">
             <div class="row">
                 <div class="col-12">
                     <h2 class="section-title py-5 my-3">music portfolio</h2>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
     
+
+    <!-- # CREDITS -->
     <section class="credits">
-        <div class="container px-3 px-md-auto">
+        <div class="container px-4 px-md-auto">
             <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title py-5 my-3">credits</h2>
+                <div class="col-12 pt-3 pt-lg-0">
+                    <h2 class="d-none d-lg-block section-title py-5 my-3" data-aos="fade-down" data-aos-duration="1500">credits</h2>
+                    <h2 class="text-center d-block d-lg-none wix-display accent-text mb-3 display-3 pt-3 fw-normal" data-aos="fade-down" data-aos-duration="1500">Credits</h2>
                 </div>
             </div>
-            <div class="row" id="credits"></div>
+            <div class="row py-3 pt-lg-0 px-1 px-md-2" id="credits"></div>
         </div>
     </section>
     
+    <!-- # ABOUT -->
     <section class="about">
-        <div class="container px-3 px-md-auto"></div>
+        <div class="container pt-0 pb-0 py-lg-5 px-4 px-md-auto">
+            <div class="row pb-0 pt-3 py-lg-5 d-flex flex-column-reverse flex-lg-row">
+                <div class="col-12 col-lg-8 pe-auto pe-lg-5">
+                    <h2 class="d-none d-lg-block wix-display accent-text mb-3 fs-1 my-1 fw-normal pb-2 pt-2" data-aos="fade-down" data-aos-duration="1500">About</h2>
+                    <p class="text-white wix-text fs-18 rubik fw-light pb-2 pe-0 pe-lg-5" data-aos="fade-up" data-aos-duration="1500">
+                        Luca Simone is an Italian composer, known for their intense and passionate scores to videogames, film, and TV. They recently scored the indie metroidvania game Threaded Memories, directed by Mattia Alfieri, for which they created and recorded an orchestral score that fully encompasses their varied influences, from classical European pieces to Japanese-inspired action cues. 
+                    </p>
+                    <p class="text-white wix-text fs-18 rubik fw-light pb-2 pe-0 pe-lg-5" data-aos="fade-up" data-aos-duration="1500">
+                        Luca is currently working on the scores to three indie short films, encompassing thriller/horror, drama and comedy genres, and several indie games. They wrote an epic medieval score for Twitch streamer Dario Moccia's promotional campaign for the Amazon series "The Wheel of Time".
+                    </p>
+                    <p class="text-white wix-text fs-18 rubik fw-light pb-2 pe-0 pe-lg-5" data-aos="fade-up" data-aos-duration="1500">
+                        Luca's compositional style merges experimental sounds with classical and orchestral techniques, while also combining both Western and Eastern musical influences. They began their musical journey in their teenage years as a singer in a metal band, before completing studies in Electronic Music at the Niccolò Piccinni Conservatoire in the Adriatic port city of Bari, Italy, where they currently reside.
+                    </p>
+                </div>
+                <div class="col-12 col-lg-4 d-flex align-items-center flex-column justify-content-center">
+                    <h2 class="text-center d-block d-lg-none wix-display accent-text mb-3 display-3 pt-3 fw-normal" data-aos="fade-down" data-aos-duration="1500">About</h2>
+                    <img src="/Resources/media/Portrait.png" class="w-100 pt-3 pt-lg-4 pb-4 pb-lg-0" alt="Composer portrait" data-aos="fade-left" data-aos-duration="1500">
+                </div>
+            </div>
+        </div>
     </section>
     
     <section class="contact">
-        <div class="container px-3 px-md-auto"></div>
+        <div class="container px-4 px-md-auto"></div>
     </section>
     
     

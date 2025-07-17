@@ -71,6 +71,18 @@
     font-optical-sizing: auto;
 }
 
+@font-face {
+    font-family: "Rubik";
+    src: url('../fonts/Rubik-VariableFont_wght.ttf');
+    font-optical-sizing: auto;
+}
+
+@font-face {
+    font-family: "Rubik Italic";
+    src: url('../fonts/Rubik-Italic-VariableFont_wght.ttf');
+    font-optical-sizing: auto;
+}
+
 .wix-display {
     font-family: 'Wix Display', sans-serif;
 }
@@ -81,6 +93,14 @@
 
 .wix-text-italic {
     font-family: 'Wix Text Italic', sans-serif;
+}
+
+.rubik {
+    font-family: 'Rubik', sans-serif;
+}
+
+.rubik-italic {
+    font-family: 'Rubik Italic', sans-serif;
 }
 
 .text-shadow {
@@ -101,11 +121,18 @@
     text-transform: uppercase;
 }
 
+p {
+    line-height: 1.8em;
+}
+
+section {
+    overflow: hidden;
+}
 
 /* ! CONTAINER */
 
 .container {
-    max-width: 960px;
+    max-width: 1360px !important;
 }
 
 
@@ -187,6 +214,10 @@
 
 .credit-img {
     width: 100%;
+}
+
+.credits-role {
+    font-size: calc(0.65em + 0.4vw);
 }
 
 
