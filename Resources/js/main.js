@@ -1,3 +1,5 @@
+// # NAVBAR TOGGLER BUTTON
+
 const toggler = document.querySelector('.navbar-toggler');
 const icon_1 = document.querySelector('.bi-list');
 const icon_2 = document.querySelector('.bi-x');
@@ -8,13 +10,17 @@ function changeIcon() {
     $icon_2.classList.toggle('opacity');
 }
 
+// ! NAVBAR TOGGLER BUTTON
+
+
+// # CREDITS SECTION
 
 const credits_section = document.getElementById('credits');
 let delay = 0;
 
 async function getCredits() {
     try {
-        const response = await fetch('../../index.json');
+        const response = await fetch('../../credits.json');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -40,3 +46,5 @@ async function getCredits() {
 }
 
 getCredits();
+
+// ! CREDITS SECTION
