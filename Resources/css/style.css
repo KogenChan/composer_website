@@ -3,6 +3,7 @@
     --secondary: #191919;
     --accent: #fff6c8;
     --accent-light: #faf7e8;
+    --black: #030303;
 }
 
 .primary-bg {
@@ -51,6 +52,18 @@
 
 .accent-light-border {
     border-color: var(--accent-light);
+}
+
+.black-bg {
+    background-color: var(--black);
+}
+
+.black-text {
+    color: var(--black);
+}
+
+.black-border {
+    border-color: var(--black);
 }
 
 @font-face {
@@ -176,6 +189,10 @@ section {
     margin: auto;
 }
 
+.fa-soundcloud {
+    padding-top: 6px;
+}
+
 .navbar-toggler {
     transition: 0.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -217,15 +234,21 @@ section {
 }
 
 .credits-role {
-    font-size: calc(0.65em + 0.4vw);
+    font-size: calc(0.7em + 0.2vw);
 }
 
 
 /* !ABOUT */
 
 .about {
-    min-height: 100vh;
+    /* min-height: 75vh; */
     background-color: var(--primary);
+}
+
+.portrait {
+    width: auto;
+    max-width: 100%;
+    max-height: 60vh;
 }
 
 
@@ -236,7 +259,72 @@ section {
     background-color: var(--secondary);
 }
 
+.contact-title {
+    font-size: 30px;
+}
 
+.input {
+    background-color: var(--black);
+    color: white;
+    border-radius: 0;
+    border: 1px solid white;
+    width: 100%;
+    transition:0.2s;
+}
+
+.input:focus {
+    box-shadow: 0px 0px 0px 1px white;
+    outline: none;
+}
+
+.input-container:hover .input {
+    box-shadow: 0px 0px 0px 1px white;
+}
+
+.sendButton {
+    background-color: var(--black) !important;
+    border-radius: 0 !important;
+    border: 2px solid white !important;
+    width: 100% !important;
+    position: relative;
+    z-index: 1;
+    padding: 0 !important;
+}
+
+.sendButton p {
+    color: white;
+    transition: color;
+    transition-delay: 0.15s;
+    margin: 0;
+    padding: 8px;
+}
+
+.sendButton::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: scaleX(0%);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+    will-change: transform;
+}
+
+.sendButton:hover::before {
+    transform: scaleX(100%);
+}
+
+.sendButton:hover p {
+    color: var(--black);
+}
+
+form {
+    width: 100%;
+}
 
 /* ! MEDIA QUERIES */
 
@@ -247,7 +335,17 @@ section {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+    form {
+        width: 75%;
+    }
     
+    .contact {
+        min-height: 75vh;
+    }
+    
+    .contact-title {
+        font-size: 40px;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
