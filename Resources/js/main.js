@@ -24,9 +24,9 @@ async function getCredits() {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
+        
         const credits = await response.json();
-
+        
         credits.forEach(credit => {
             credits_section.innerHTML += `
                 <div class="col-6 col-lg-4 col-xl-3 pb-2 pb-md-4 px-1 d-flex flex-column align-items-center" 
@@ -39,7 +39,7 @@ async function getCredits() {
             `;
             delay = Math.round(((delay + 250) * 0.9) / 50) * 50;
         });
-
+        
     } catch (error) {
         console.error('Failed to fetch data:', error);
     }
@@ -48,3 +48,177 @@ async function getCredits() {
 getCredits();
 
 // ! CREDITS SECTION
+
+
+// # PORTFOLIO
+
+let player = {
+    // PROPERTIES
+    // HTML ELEMENTS
+    hName : null, // song name
+    hTimeR : null, // song time slider
+    hTimeN : null, // song current time
+    hTimeT : null, // song time
+    hTog : null, // toggle play/pause
+    hVolI : null, // volume icon/toggle
+    hVolR : null, // volume slider
+    
+    // AUDIO & PLAYLIST
+    pAud : null, // audio player
+    pList : null, // playlist
+    pSeek : false, // user seeking time slider
+    pNow : 0, // currently playing
+    
+    // HELPER - FORMAT "NICE TIME"
+    nicetime : secs => {
+        let m = Math.floor(secs/60),
+        s = secs - (m * 60);
+        if (s<10) { s = "0" + s; }
+        return `${m}:${s}`;
+    },
+    
+    // INITIALIZE
+    init : () => {
+        // GET HTML ELEMENTS
+        player.hName = document.getElementById("playName");
+        player.hTimeR = document.getElementById("playTimeR");
+        player.hTimeN = document.getElementById("playTimeN");
+        player.hTimeT = document.getElementById("playTimeT");
+        player.hTog = document.getElementById("playTog");
+        player.hVolI = document.getElementById("playVolI");
+        player.hVolR = document.getElementById("playVolR");
+        
+        // AUDIO OBJECT & PLAYLIST
+        player.pAud = new Audio();
+        player.pList = document.querySelectorAll("#playlist div");
+        
+        player.pList.forEach((songDiv) => {
+            const src = songDiv.dataset.src;
+            const audio = new Audio(src);
+            
+            audio.addEventListener("loadedmetadata", () => {
+                const duration = player.nicetime(Math.floor(audio.duration));
+                if (!songDiv.querySelector(".song-duration")) {
+                    const span = document.createElement("span");
+                    span.className = "song-duration text-white";
+                    span.textContent = `${duration}`;
+                    songDiv.append(span);
+                }
+            });
+        });
+        
+        // AUTO SWITCH PLAY/PAUSE ICON
+        let pp = () => {
+            if ( player.pAud.paused == 0 ) {
+                player.hTog.classList.add("bi-pause-circle-fill"),
+                player.hTog.classList.remove("bi-play-circle-fill")                    
+            } else {
+                player.hTog.classList.remove("bi-pause-circle-fill"),
+                player.hTog.classList.add("bi-play-circle-fill") 
+            };
+        };
+        player.pAud.onplay = pp;
+        player.pAud.onpause = pp;
+        
+        // AUTO PLAY NEXT SONG
+        player.pAud.onended = () => player.load(true);
+        
+        // AUTO UPDATE CURRENT TIME
+        player.pAud.ontimeupdate = () => {
+            if (!player.pSeek) { player.hTimeR.value = Math.floor(player.pAud.currentTime); }
+            player.hTimeN.innerHTML = player.nicetime(Math.floor(player.pAud.currentTime));
+        };
+        
+        // TIME SLIDER
+        player.hTimeR.oninput = () => player.pSeek = true;
+        player.hTimeR.onchange = () => {
+            player.pAud.currentTime = player.hTimeR.value;
+            player.pSeek = false;
+            if (player.pAud.paused) { player.pAud.play(); }
+        }
+        
+        // CLICK TO PLAY SONG
+        player.pList.forEach((song, i) => {
+            song.onclick = () => player.load(i);
+        });
+        
+        // INIT - PRELOAD FIRST SONG
+        player.load(0, true);
+    },
+    
+    // LOAD SELECTED SONG
+    load : (song, preload) => {
+        // STOP PLAYING CURRENT SONG
+        if (!player.pAud.paused) { player.pAud.pause(); }
+        
+        // LOCK INTERFACE
+        player.hName.innerHTML = "Loading";
+        player.hTimeR.disabled = true;
+        player.pSeek = false;
+        player.hTog.onclick = "";
+        player.hVolI.onclick = "";
+        player.hVolR.disabled = true;
+        
+        // NEXT SONG TO PLAY
+        if (song === true) { player.pNow++; }
+        else if (song === false) { player.pNow--; }
+        else { player.pNow = song; }
+        if (player.pNow >= player.pList.length) { player.pNow = 0; }
+        if (player.pNow < 0) { player.pNow = player.pList.length - 1; }
+        
+        // SET SELECTED SONG
+        for (let song of player.pList) { song.classList.remove("current"); }
+        let selected = player.pList[player.pNow];
+        selected.classList.add("current");
+        
+        // LOAD SELECTED SONG
+        player.pAud.src = selected.dataset.src;
+        player.pAud.oncanplaythrough = () => {
+            // SET SONG NAME
+            player.hName.innerHTML = selected.dataset.title;
+            
+            // SET SONG TIME
+            player.hTimeN.innerHTML = "0:00";
+            player.hTimeT.innerHTML = player.nicetime(Math.floor(player.pAud.duration));
+            player.hTimeR.value = 0;
+            player.hTimeR.max = Math.floor(player.pAud.duration);
+            
+            // ENABLE CONTROLS
+            player.hTimeR.disabled = false;
+            player.hVolR.disabled = false;
+            player.hTog.onclick = () => {
+                if (player.pAud.paused) { player.pAud.play(); }
+                else { player.pAud.pause(); }
+            };
+            player.hVolI.onclick = () => {
+                player.pAud.volume = player.pAud.volume==0 ? 1 : 0 ;
+                player.hVolR.value = player.pAud.volume;
+                if ( player.pAud.volume == 0 ) {
+                    player.hVolI.classList.add("bi-volume-mute-fill"),
+                    player.hVolI.classList.remove("bi-volume-up-fill")                    
+                } else {
+                    player.hVolI.classList.remove("bi-volume-mute-fill"),
+                    player.hVolI.classList.add("bi-volume-up-fill")  
+                }
+            };
+            player.hVolR.onchange = () => {
+                player.pAud.volume = player.hVolR.value;
+                if ( player.pAud.volume == 0 ) {
+                    player.hVolI.classList.add("bi-volume-mute-fill"),
+                    player.hVolI.classList.remove("bi-volume-up-fill")                    
+                } else {
+                    player.hVolI.classList.remove("bi-volume-mute-fill"),
+                    player.hVolI.classList.add("bi-volume-up-fill")  
+                }
+            };
+            
+            // START PLAYING SONG
+            if (!preload) { player.pAud.play(); }
+        };
+    }
+};
+
+// START
+window.addEventListener("load", player.init);
+
+// ! PORTFOLIO

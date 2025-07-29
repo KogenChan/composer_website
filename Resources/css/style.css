@@ -221,6 +221,46 @@ section {
     background-size: cover;
 }
 
+#playTog {
+    font-size: 3rem;
+    margin-bottom: 6px;
+}
+
+.skipBtn {
+    font-size: 1.55rem;
+    margin-bottom: 3px;
+}
+
+#playVolR {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    border-radius: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    color: var(--accent);
+}
+
+#playVolR::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  background: var(--accent);
+  cursor: pointer; /* Cursor on hover */
+}
+
+#playVolR::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  cursor: pointer;
+}
+
 
 /* !CREDITS */
 

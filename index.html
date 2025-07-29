@@ -108,14 +108,51 @@
     <!-- # PORTFOLIO -->
     <main class="portfolio min-vh-100">
         <div class="container px-4 px-md-auto">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12">
                     <h2 class="section-title py-5 my-3">music portfolio</h2>
+                </div>
+                <div class="col-12 col-lg-10">
+                    <div id="player" class="primary-bg px-4 py-2">
+                        
+                        <!-- Controls -->
+                        <div id="playControls">
+                            <div class="pt-2 d-flex align-items-center">                                
+                                <span id="playName" class="text-white wix-display fs-3">Select a song</span>
+                                <span class="text-white wix-display fs-3 px-2">-</span>
+                                
+                                <div id="playTimeD" class="d-flex align-items-center pt-1">
+                                    <span id="playTimeN" class="text-white wix-display fs-4">0:00</span>
+                                    <span class="text-white wix-display fs-4 px-1">/</span>
+                                    <span id="playTimeT" class="text-white wix-display fs-4">0:00</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i id="playTog" class="accent-text bi bi-play-circle-fill pe-3"></i>                
+                                <input id="playTimeR" type="range" value="0" min="0" disabled>
+                                <i id="playVolI" class="accent-text px-3 skipBtn bi bi-volume-up-fill"></i>
+                                <input id="playVolR" type="range" min="0" max="1" step="0.1" value="1" disabled>                               
+                            </div>
+                        </div>
+                        
+                        <!-- Playlist -->
+                        <div id="playlist">
+                            <div class="text-white d-flex justify-content-between pb-3 wix-text fs-18" data-src="Resources/media/portfolio/danger.wav" data-title="Looming Danger (Sci-fi/Orchestral Hybrid)">
+                                <span>Looming Danger (Sci-fi/Orchestral Hybrid)</span>
+                            </div>
+                            <div class="text-white d-flex justify-content-between pb-3 wix-text fs-18" data-src="Resources/media/portfolio/spring.wav" data-title="Spring (Drama/Classical Hybrid)">
+                                <span>Spring (Drama/Classical Hybrid)</span>
+                            </div>
+                            <div class="text-white d-flex justify-content-between pb-3 wix-text fs-18" data-src="Resources/media/portfolio/solar.flac" data-title="Solar Chronicles (Sci-fi/Post Rock)">
+                                <span>Solar Chronicles (Sci-fi/Post Rock)</span>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </main>
-    
     
     <!-- # CREDITS -->
     <section class="credits">
@@ -168,6 +205,7 @@
         </div>
     </section>
     
+    <!-- # CONTACT -->
     <section class="contact">
         <div class="container py-2 py-md-5 px-4 px-md-auto">
             <div class="row pb-5 pt-3 py-lg-5 mt-lg-5">
@@ -199,31 +237,31 @@
                                 <label for="name" class="text-white d-block wix-text">
                                     <small>First Name</small>
                                 </label>
-                                <input type="text" name="name" class="mt-1 mb-3 p-2 input" required>
+                                <input id="name" type="text" name="name" class="mt-1 mb-3 p-2 input" required>
                             </div>
                             <div class="col-6 input-container">
                                 <label for="surname" class="text-white d-block wix-text">
                                     <small>Last Name</small>
                                 </label>
-                                <input type="text" name="surname" class="mt-1 mb-3 p-2 input" required>
+                                <input id="surname" type="text" name="surname" class="mt-1 mb-3 p-2 input" required>
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-12 input-container">
-                                <label for="name" class="text-white d-block wix-text">
+                                <label for="email" class="text-white d-block wix-text">
                                     <small>Email</small>
                                 </label>
-                                <input type="email" name="email" class="mt-1 mb-3 p-2 input" required>
+                                <input id="email" type="email" name="email" class="mt-1 mb-3 p-2 input" required>
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-12 input-container">
-                                <label for="name" class="text-white d-block wix-text">
+                                <label for="message" class="text-white d-block wix-text">
                                     <small>Your message</small>
                                 </label>
-                                <textarea name="message" class="mt-1 mb-3 p-2 input" rows="4" required></textarea>
+                                <textarea id="message" name="message" class="mt-1 mb-3 p-2 input" rows="4" required></textarea>
                             </div>
                         </div>
                         
