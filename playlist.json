@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Looming Danger",
+        "genre": "Sci-fi/Orchestral Hybrid",
+        "file": "Resources/media/portfolio/danger.wav"
+    },
+    {
+        "name": "Spring",
+        "genre": "Drama/Classical Hybrid",
+        "file": "Resources/media/portfolio/spring.wav"
+    },
+    {
+        "name": "Solar Chronicles",
+        "genre": "Sci-fi/Post Rock",
+        "file": "Resources/media/portfolio/solar.flac"
+    },
+    {
+        "name": "Steel Woods",
+        "genre": "Fantasy/Orchestral Hybrid",
+        "file": "Resources/media/portfolio/woods.wav"
+    },
+    {
+        "name": "Stranded",
+        "genre": "Drama/Classical Hybrid",
+        "file": "Resources/media/portfolio/strand.wav"
+    },
+    {
+        "name": "Neuromancer",
+        "genre": "Sci-Fi/Electronic",
+        "file": "Resources/media/portfolio/neuro.wav"
+    },
+    {
+        "name": "The Wolf Left Behind",
+        "genre": "Fantasy/Action Orchestral",
+        "file": "Resources/media/portfolio/wolf.wav"
+    },
+    {
+        "name": "Twins",
+        "genre": "Drama/Classical",
+        "file": "Resources/media/portfolio/twins.wav"
+    },
+    {
+        "name": "Soy Sauce",
+        "genre": "Hybrid/Acoustic",
+        "file": "Resources/media/portfolio/soy.wav"
+    },
+    {
+        "name": "Insurgence",
+        "genre": "Trailer/Hybrid Orchestral Action",
+        "file": "Resources/media/portfolio/surge.wav"
+    }
+]

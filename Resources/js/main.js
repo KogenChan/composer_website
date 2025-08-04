@@ -1,14 +1,13 @@
 // # NAVBAR TOGGLER BUTTON
 
 const toggler = document.querySelector('.navbar-toggler');
-const icon_1 = document.querySelector('.bi-list');
-const icon_2 = document.querySelector('.bi-x');
+const togglerIcon = document.querySelector('.toggler-icon');
 toggler.onclick = changeIcon;
 
 function changeIcon() {
-    $icon_1.classList.toggle('opacity');
-    $icon_2.classList.toggle('opacity');
-}
+        togglerIcon.classList.toggle('bi-list');
+        togglerIcon.classList.toggle('bi-x');
+}; 
 
 // ! NAVBAR TOGGLER BUTTON
 
@@ -51,6 +50,44 @@ getCredits();
 
 
 // # PORTFOLIO
+
+const playlist_section = document.getElementById('playlist');
+
+async function getPlaylist () {
+    try {
+        const response = await fetch('../../playlist.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const playlist = await response.json();
+        let index = 0;
+        
+        playlist.forEach (track => {
+            index ++;
+            playlist_section.innerHTML += `
+                <li>
+                    <div class="portfolio-item d-flex align-items-center justify-content-between px-4 wix-display fs-18" data-src="${track.file}" data-title="${track.name}">
+                        <span style="width:40px;">${index}</span>
+                        <div class="d-flex flex-column flex-sm-row w-100">
+                            <span id="trackName">${track.name}</span>
+                            <span class="ps-sm-2">(${track.genre})</span>
+                        </div>
+                    </div>
+                </li>
+            `;
+        });
+        
+        player.init();
+        
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
+    }
+}
+
+getPlaylist();
+
+// * PLAYER
 
 let player = {
     // PROPERTIES
@@ -218,7 +255,7 @@ let player = {
     }
 };
 
-// START
-window.addEventListener("load", player.init);
+
+
 
 // ! PORTFOLIO
