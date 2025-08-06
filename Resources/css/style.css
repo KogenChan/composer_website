@@ -1,6 +1,6 @@
 :root {
     --primary: #021823;
-    --primary-light: hsl(200, 84%, 14%);
+    --primary-light: #062e42;
     --secondary: #191919;
     --accent: #fff6c8;
     --accent-light: #faf7e8;
@@ -340,7 +340,62 @@ section {
 }
 
 .current-song {
-    font-size: calc(1rem + 0.7vw);
+    font-size: calc(1.1rem + 0.6vw);
+}
+
+#waveform {
+    height: 128px;
+    width: 100%;
+}
+
+#waveform ::part(cursor) {
+    display: none;
+}
+
+#playTimeR {
+    cursor: pointer;
+}
+
+#waveform canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+#hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    pointer-events: none;
+    height: 100%;
+    width: 0;
+    mix-blend-mode: color-dodge;
+    background: var(--primary);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#waveform:hover #hover {
+    opacity: 1;
+}
+
+#playerAudio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+#playTimeR {
+    appearance: none;
+    height: 128px;
+    background: var(--accent);
+    position: absolute;
+    top:0px;
+    z-index: 100;
+    opacity: 0;
 }
 
 /* !CREDITS */

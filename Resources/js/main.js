@@ -5,8 +5,8 @@ const togglerIcon = document.querySelector('.toggler-icon');
 toggler.onclick = changeIcon;
 
 function changeIcon() {
-        togglerIcon.classList.toggle('bi-list');
-        togglerIcon.classList.toggle('bi-x');
+    togglerIcon.classList.toggle('bi-list');
+    togglerIcon.classList.toggle('bi-x');
 }; 
 
 // ! NAVBAR TOGGLER BUTTON
@@ -126,8 +126,8 @@ let player = {
         player.hVolR = document.getElementById("playVolR");
         
         // AUDIO OBJECT & PLAYLIST
-        player.pAud = new Audio();
-        player.pList = document.querySelectorAll("#playlist div");
+        player.pAud = document.getElementById("playerAudio");
+        player.pList = document.querySelectorAll("#playlist .portfolio-item");
         
         player.pList.forEach((songDiv) => {
             const src = songDiv.dataset.src;
@@ -160,11 +160,7 @@ let player = {
         // AUTO PLAY NEXT SONG
         player.pAud.onended = () => player.load(true);
         
-        // AUTO UPDATE CURRENT TIME
-        player.pAud.ontimeupdate = () => {
-            if (!player.pSeek) { player.hTimeR.value = Math.floor(player.pAud.currentTime); }
-            player.hTimeN.innerHTML = player.nicetime(Math.floor(player.pAud.currentTime));
-        };
+        
         
         // TIME SLIDER
         player.hTimeR.oninput = () => player.pSeek = true;
@@ -181,12 +177,18 @@ let player = {
         
         // INIT - PRELOAD FIRST SONG
         player.load(0, true);
+        let selected = player.pList[player.pNow];
+        const src = selected.dataset.src;
+        console.log(src);
     },
     
     // LOAD SELECTED SONG
     load : (song, preload) => {
+        
         // STOP PLAYING CURRENT SONG
-        if (!player.pAud.paused) { player.pAud.pause(); }
+        if (!player.pAud.paused) {
+            player.pAud.pause();
+        }
         
         // LOCK INTERFACE
         player.hName.innerHTML = "Loading";
@@ -197,20 +199,57 @@ let player = {
         player.hVolR.disabled = true;
         
         // NEXT SONG TO PLAY
-        if (song === true) { player.pNow++; }
-        else if (song === false) { player.pNow--; }
-        else { player.pNow = song; }
-        if (player.pNow >= player.pList.length) { player.pNow = 0; }
-        if (player.pNow < 0) { player.pNow = player.pList.length - 1; }
+        if (song === true) {
+            player.pNow++;
+        }
+        else if (song === false) {
+            player.pNow--;
+        }
+        else {
+            player.pNow = song;
+        }
+        if (player.pNow >= player.pList.length) {
+            player.pNow = 0;
+        }
+        if (player.pNow < 0) {
+            player.pNow = player.pList.length - 1;
+        }
         
         // SET SELECTED SONG
-        for (let song of player.pList) { song.classList.remove("current"); }
+        for (let song of player.pList) {
+            song.classList.remove("current");
+        }
         let selected = player.pList[player.pNow];
         selected.classList.add("current");
         
         // LOAD SELECTED SONG
-        player.pAud.src = selected.dataset.src;
-        player.pAud.oncanplaythrough = () => {
+        const src = selected.dataset.src;
+        
+        if (!src) {
+            console.error("Missing audio source for song at index:", player.pNow);
+            return;
+        }
+        
+        // SYNC WAVEFORM
+        player.pAud.onloadedmetadata = () => {
+            
+            if (window.wavesurfer) {       
+                wavesurfer.load(src);
+                wavesurfer.seekTo(0);
+            }
+            
+            // AUTO UPDATE CURRENT TIME
+            player.pAud.ontimeupdate = () => {
+                if (!player.pSeek && isFinite(player.pAud.duration) && player.pAud.duration > 0) {
+                    let cur = player.pAud.currentTime;
+                    let dur = player.pAud.duration;
+                    player.hTimeR.value = Math.floor(cur);
+                    let seek = ((100 / dur) * cur) / 100;
+                    wavesurfer.seekTo(seek);
+                }
+                player.hTimeN.innerHTML = player.nicetime(Math.floor(player.pAud.currentTime));
+            };
+            
             // SET SONG NAME
             player.hName.innerHTML = selected.dataset.title;
             
@@ -221,11 +260,13 @@ let player = {
             player.hTimeR.max = Math.floor(player.pAud.duration);
             
             // ENABLE CONTROLS
-            player.hTimeR.disabled = false;
-            player.hVolR.disabled = false;
             player.hTog.onclick = () => {
-                if (player.pAud.paused) { player.pAud.play(); }
-                else { player.pAud.pause(); }
+                if (player.pAud.paused) {
+                    player.pAud.play();
+                }
+                else {
+                    player.pAud.pause();
+                }
             };
             player.hVolI.onclick = () => {
                 player.pAud.volume = player.pAud.volume==0 ? 1 : 0 ;
@@ -250,12 +291,18 @@ let player = {
             };
             
             // START PLAYING SONG
-            if (!preload) { player.pAud.play(); }
+            wavesurfer.once('ready', () => {
+            player.hTimeR.disabled = false;
+            player.hVolR.disabled = false;
+                if (!preload) {
+                    player.pAud.play();
+                }
+            });
         };
+        
+        player.pAud.src = src;        
+        player.pAud.load(); 
     }
 };
-
-
-
 
 // ! PORTFOLIO
