@@ -78,7 +78,13 @@ async function getPlaylist () {
             `;
         });
         
-        player.init();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(() => player.init(), 100);
+            });
+        } else {
+            setTimeout(() => player.init(), 100);
+        }
         
     } catch (error) {
         console.error('Failed to fetch data:', error);
@@ -116,6 +122,13 @@ let player = {
     
     // INITIALIZE
     init : () => {
+
+        if (typeof window.wavesurfer === 'undefined') {
+            console.warn('WaveSurfer not yet initialized, retrying in 100ms...');
+            setTimeout(() => player.init(), 100);
+            return;
+        }
+
         // GET HTML ELEMENTS
         player.hName = document.getElementById("playName");
         player.hTimeR = document.getElementById("playTimeR");
@@ -179,7 +192,6 @@ let player = {
         player.load(0, true);
         let selected = player.pList[player.pNow];
         const src = selected.dataset.src;
-        console.log(src);
     },
     
     // LOAD SELECTED SONG
@@ -245,7 +257,9 @@ let player = {
                     let dur = player.pAud.duration;
                     player.hTimeR.value = Math.floor(cur);
                     let seek = ((100 / dur) * cur) / 100;
-                    wavesurfer.seekTo(seek);
+                    if (window.wavesurfer) {
+                        window.wavesurfer.seekTo(seek);
+                    }
                 }
                 player.hTimeN.innerHTML = player.nicetime(Math.floor(player.pAud.currentTime));
             };
@@ -291,13 +305,21 @@ let player = {
             };
             
             // START PLAYING SONG
-            wavesurfer.once('ready', () => {
-            player.hTimeR.disabled = false;
-            player.hVolR.disabled = false;
+            if (window.wavesurfer) {
+                window.wavesurfer.once('ready', () => {
+                    player.hTimeR.disabled = false;
+                    player.hVolR.disabled = false;
+                    if (!preload) {
+                        player.pAud.play();
+                    }
+                });
+            } else {
+                player.hTimeR.disabled = false;
+                player.hVolR.disabled = false;
                 if (!preload) {
                     player.pAud.play();
                 }
-            });
+            }
         };
         
         player.pAud.src = src;        
@@ -306,3 +328,56 @@ let player = {
 };
 
 // ! PORTFOLIO
+
+
+
+// ! COOKIE BANNER
+
+// Show cookie consent banner
+function showCookieConsent() {
+    const consent = document.getElementById('cookieConsent');
+    consent.classList.add('show');
+}
+
+// Check if cookie consent was previously given
+if (!localStorage.getItem('cookieConsent')) {
+    // Show banner after a short delay
+    setTimeout(showCookieConsent, 1000);
+}
+
+function acceptAll() {
+    const analyticsCookies = document.getElementById('analyticsCookies');
+
+    analyticsCookies.checked = true;
+
+    saveCookiePreferences();
+
+    consent.classList.remove('show');
+}
+
+function acceptNecessary() {
+    const analyticsCookies = document.getElementById('analyticsCookies');
+
+    analyticsCookies.checked = false;
+
+    saveCookiePreferences();
+
+    consent.classList.remove('show');
+}
+
+function saveCookiePreferences() {
+    const consent = document.getElementById('cookieConsent');
+    const analyticsCookies = document.getElementById('analyticsCookies').checked;
+
+    localStorage.setItem('cookieConsent', 'true');
+    localStorage.setItem('analyticsCookies', analyticsCookies);
+
+    consent.classList.add('hiding');
+    setTimeout(() => {
+        consent.classList.remove('show', 'hiding');
+    }, 300);
+
+    console.log('Preferences saved:', {
+        analytics: analyticsCookies
+    });
+}
