@@ -340,10 +340,13 @@ function showCookieConsent() {
 }
 
 // Check if cookie consent was previously given
-if (!localStorage.getItem('cookieConsent')) {
+let checkCookie = document.cookie.indexOf("CookieBy=LucaSimone");
+console.log(checkCookie);
+if (checkCookie == -1) {
     // Show banner after a short delay
     setTimeout(showCookieConsent, 1000);
 }
+
 
 function acceptAll() {
     const analyticsCookies = document.getElementById('analyticsCookies');
@@ -368,6 +371,7 @@ function acceptNecessary() {
 function saveCookiePreferences() {
     const consent = document.getElementById('cookieConsent');
     const analyticsCookies = document.getElementById('analyticsCookies').checked;
+    document.cookie = "CookieBy=LucaSimone; max-age=" + 60 * 60 * 24 * 180;
 
     localStorage.setItem('cookieConsent', 'true');
     localStorage.setItem('analyticsCookies', analyticsCookies);
