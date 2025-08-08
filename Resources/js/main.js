@@ -122,13 +122,13 @@ let player = {
     
     // INITIALIZE
     init : () => {
-
+        
         if (typeof window.wavesurfer === 'undefined') {
             console.warn('WaveSurfer not yet initialized, retrying in 100ms...');
             setTimeout(() => player.init(), 100);
             return;
         }
-
+        
         // GET HTML ELEMENTS
         player.hName = document.getElementById("playName");
         player.hTimeR = document.getElementById("playTimeR");
@@ -350,21 +350,21 @@ if (checkCookie == -1) {
 
 function acceptAll() {
     const analyticsCookies = document.getElementById('analyticsCookies');
-
+    
     analyticsCookies.checked = true;
-
+    
     saveCookiePreferences();
-
+    
     consent.classList.remove('show');
 }
 
 function acceptNecessary() {
     const analyticsCookies = document.getElementById('analyticsCookies');
-
+    
     analyticsCookies.checked = false;
-
+    
     saveCookiePreferences();
-
+    
     consent.classList.remove('show');
 }
 
@@ -372,16 +372,36 @@ function saveCookiePreferences() {
     const consent = document.getElementById('cookieConsent');
     const analyticsCookies = document.getElementById('analyticsCookies').checked;
     document.cookie = "CookieBy=LucaSimone; max-age=" + 60 * 60 * 24 * 180;
-
+    
     localStorage.setItem('cookieConsent', 'true');
     localStorage.setItem('analyticsCookies', analyticsCookies);
-
+    
     consent.classList.add('hiding');
     setTimeout(() => {
         consent.classList.remove('show', 'hiding');
     }, 300);
-
+    
     console.log('Preferences saved:', {
         analytics: analyticsCookies
     });
+}
+
+
+// ! Back to top BTN
+
+let mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.opacity = "1";
+    } else {
+        mybutton.style.opacity = "0";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
