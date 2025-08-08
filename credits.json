@@ -1,22 +1,22 @@
 [
     { 
         "name": "The Ferryman",
-        "img": "/Resources/media/ferryman.jpg",
+        "img": "./Resources/media/ferryman.jpg",
         "role": "Composer"
     },
     { 
         "name": "Threaded Memories",
-        "img": "/Resources/media/memories.png",
+        "img": "./Resources/media/memories.png",
         "role": "Composer, Sound Designer"
     },
     { 
         "name": "The Sleeper Beneath",
-        "img": "/Resources/media/sleeper.png",
+        "img": "./Resources/media/sleeper.png",
         "role": "Composer, Sound Designer"
     },
     { 
         "name": "Mediapep",
-        "img": "/Resources/media/mediapep.png",
+        "img": "./Resources/media/mediapep.png",
         "role": "Composer"
     }
 ]
