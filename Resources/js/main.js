@@ -5,8 +5,13 @@ const togglerIcon = document.querySelector('.toggler-icon');
 toggler.onclick = changeIcon;
 
 function changeIcon() {
-    togglerIcon.classList.toggle('bi-list');
-    togglerIcon.classList.toggle('bi-x');
+    if (toggler.classList.contains('collapsed')) {
+        togglerIcon.classList.add('bi-list');
+        togglerIcon.classList.remove('bi-x');
+    } else {
+        togglerIcon.classList.remove('bi-list');
+        togglerIcon.classList.add('bi-x');
+    }
 }; 
 
 // ! NAVBAR TOGGLER BUTTON
