@@ -1,4 +1,4 @@
-import WaveSurfer from '../../../node_modules/wavesurfer.js/dist/wavesurfer.js';
+import WaveSurfer from '../../../../node_modules/wavesurfer.js/dist/wavesurfer.js';
 
 const wavesurfer = WaveSurfer.create({
     container: '#waveform',

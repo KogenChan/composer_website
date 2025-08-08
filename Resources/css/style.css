@@ -165,7 +165,7 @@ section {
 /* ! HEADER */
 
 .header {
-    background-image: url('./Resources/media/cover_16_9.jpg');
+    background-image: url("../media/cover_16_9.jpg");
     background-position: 85% 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -224,7 +224,7 @@ section {
 /* !PORTFOLIO */
 
 .portfolio {
-    background-image: url('./Resources/media/mixerConsole.jpg');
+    background-image: url('../media/mixerConsole.jpg');
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
