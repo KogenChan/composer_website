@@ -24,7 +24,7 @@ let delay = 0;
 
 async function getCredits() {
     try {
-        const response = await fetch('https://kogensan.github.io/composer_website/credits.json');
+        const response = await fetch('https://lucasimone.net/credits.json');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -60,7 +60,7 @@ const playlist_section = document.getElementById('playlist');
 
 async function getPlaylist () {
     try {
-        const response = await fetch('https://kogensan.github.io/composer_website/playlist.json');
+        const response = await fetch('https://lucasimone.net/playlist.json');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
