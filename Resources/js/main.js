@@ -341,7 +341,6 @@ function showCookieConsent() {
 
 // Check if cookie consent was previously given
 let checkCookie = document.cookie.indexOf("CookieBy=LucaSimone");
-console.log(checkCookie);
 if (checkCookie == -1) {
     // Show banner after a short delay
     setTimeout(showCookieConsent, 1000);
