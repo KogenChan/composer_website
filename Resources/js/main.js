@@ -19,7 +19,7 @@ let delay = 0;
 
 async function getCredits() {
     try {
-        const response = await fetch('../../credits.json');
+        const response = await fetch('../credits.json');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
