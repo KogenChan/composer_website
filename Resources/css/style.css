@@ -648,6 +648,15 @@ form {
     .top-btn:hover {
         transform: translate(40px);
     }
+    
+    .nav-link {
+        margin: auto;
+    }
+    
+    .nav-link:hover {
+        transform: scale(115%) translateY(-5px);
+        color: var(--accent) !important;
+    }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
@@ -658,15 +667,6 @@ form {
     
     .header-row {
         min-height: 100vh;
-    }
-    
-    .nav-link {
-        margin: auto;
-    }
-    
-    .nav-link:hover {
-        transform: scale(115%) translateY(-5px);
-        color: var(--accent) !important;
     }
 }
 

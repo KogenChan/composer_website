@@ -21,8 +21,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./Resources/css/app.css">
+    <link rel="preload" fetchpriority="high" href="./Resources/media/cover.avif">
 </head>
 <body>
     
@@ -178,12 +179,12 @@
             <!-- ? YouTube Videos -->
             <div class="row justify-content-center pb-0 pb-lg-4 m-0">
                 <div class="col-12 col-lg-5 text-center px-0 pe-lg-3">
-                    <iframe class="mb-3 ytPlayer" src="https://www.youtube.com/embed/nAFy9tjq7Pk"></iframe>
-                    <iframe class="mb-3 ytPlayer" src="https://www.youtube.com/embed/B-Nf96jKN9I"></iframe>
+                    <lite-youtube videoid="nAFy9tjq7Pk" class="mb-3 ytPlayer" videotitle="The Ferryman - Gameplay Trailer"></lite-youtube>
+                    <lite-youtube videoid="B-Nf96jKN9I" class="mb-3 ytPlayer" videotitle="Harry Potter 5 Rescore"></lite-youtube>
                 </div>
                 <div class="col-12 col-lg-5 text-center px-0 ps-lg-3">
-                    <iframe class="mb-3 ytPlayer" src="https://www.youtube.com/embed/f-ml7U2YvRw"></iframe>
-                    <iframe class="mb-3 ytPlayer" src="https://www.youtube.com/embed/RTit39UaSr8"></iframe>
+                    <lite-youtube videoid="f-ml7U2YvRw" class="mb-3 ytPlayer" videotitle="Metroid Dread Gameplay Rescore"></lite-youtube>
+                    <lite-youtube videoid="RTit39UaSr8" class="mb-3 ytPlayer" videotitle="Akira Rescore - Biker Gang Fight Scene"></lite-youtube>
                 </div>
             </div>
             
@@ -390,14 +391,15 @@
     </div>
     
     <!-- # SCRIPTS -->
-    <script type="module" src="./Resources/js/modules/audioVisualizer.js"></script>
+    <script type="module" src="./Resources/js/modules/audioVisualizer-min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
     <script src="./Resources/js/bootstrap/bootstrap.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
     <script src="https://kit.fontawesome.com/d318e8c39b.js" crossorigin="anonymous"></script>
-    <script src="./Resources/js/main.js"></script>
+    <script src="./Resources/js/main-min.js"></script>
     
 </body>
 </html>
