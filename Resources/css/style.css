@@ -273,6 +273,8 @@ section {
     border-radius: 10px;
     background: var(--accent);
     cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 #playVolR::-moz-range-thumb {
@@ -280,24 +282,61 @@ section {
     height: 10px;
     background: var(--accent);
     cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 .dropdown-content {
-    top:-90px;
+    top: -90px;
     height: 90px;
     width: 24px;
     opacity: 0;
-    transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1);
-    /* display:none; */
+    visibility: hidden;
+    transition: opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.2s cubic-bezier(0.65, 0, 0.35, 1);
     position: absolute;
-    z-index: 1;
+    z-index: 100;
     border: 1px solid var(--primary-light);
     box-shadow: 0px 0px 8px 0px #000;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--volume-fill, 50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    transform: rotate(0deg);
+    transform-origin: bottom;
+    z-index: 1;
 }
 
 .dropdown:hover .dropdown-content {
-    /* display: block; */
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dropdown-content:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dropdown::before {
+    content: "";
+    position: absolute;
+    top: -95px;
+    left: -15px;
+    width: 54px;
+    height: 120px;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .portfolio-item {

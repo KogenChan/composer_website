@@ -98,6 +98,19 @@ async function getPlaylist () {
 
 getPlaylist();
 
+
+// # VOLUME VISUAL FEEDBACK
+
+function updateVolumeVisual(volumeValue) {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    if (dropdownContent) {
+        const fillPercent = (75 - (volumeValue * 75)) + 7;
+        dropdownContent.style.setProperty('--volume-fill', fillPercent + '%');
+    }
+}
+
+// ! VOLUME VISUAL FEEDBACK
+
 // * PLAYER
 
 let player = {
@@ -287,6 +300,8 @@ let player = {
                     player.pAud.pause();
                 }
             };
+            
+            // VOLUME ICON CLICK 
             player.hVolI.onclick = () => {
                 player.pAud.volume = player.pAud.volume==0 ? 1 : 0 ;
                 player.hVolR.value = player.pAud.volume;
@@ -297,7 +312,25 @@ let player = {
                     player.hVolI.classList.remove("bi-volume-mute-fill"),
                     player.hVolI.classList.add("bi-volume-up-fill")  
                 }
+                // Update visual feedback
+                updateVolumeVisual(player.pAud.volume);
             };
+            
+            // VOLUME SLIDER CHANGE 
+            player.hVolR.oninput = () => {
+                player.pAud.volume = player.hVolR.value;
+                if ( player.pAud.volume == 0 ) {
+                    player.hVolI.classList.add("bi-volume-mute-fill"),
+                    player.hVolI.classList.remove("bi-volume-up-fill")                    
+                } else {
+                    player.hVolI.classList.remove("bi-volume-mute-fill"),
+                    player.hVolI.classList.add("bi-volume-up-fill")  
+                }
+                // Update visual feedback
+                updateVolumeVisual(player.hVolR.value);
+            };
+
+            // VOLUME SLIDER CHANGE - Fallback for compatibility
             player.hVolR.onchange = () => {
                 player.pAud.volume = player.hVolR.value;
                 if ( player.pAud.volume == 0 ) {
@@ -307,6 +340,8 @@ let player = {
                     player.hVolI.classList.remove("bi-volume-mute-fill"),
                     player.hVolI.classList.add("bi-volume-up-fill")  
                 }
+                // Update visual feedback
+                updateVolumeVisual(player.hVolR.value);
             };
             
             // START PLAYING SONG
@@ -314,6 +349,8 @@ let player = {
                 window.wavesurfer.once('ready', () => {
                     player.hTimeR.disabled = false;
                     player.hVolR.disabled = false;
+                    // Initialize volume visual feedback
+                    updateVolumeVisual(player.hVolR.value);
                     if (!preload) {
                         player.pAud.play();
                     }
@@ -321,6 +358,8 @@ let player = {
             } else {
                 player.hTimeR.disabled = false;
                 player.hVolR.disabled = false;
+                // Initialize volume visual feedback
+                updateVolumeVisual(player.hVolR.value);
                 if (!preload) {
                     player.pAud.play();
                 }
