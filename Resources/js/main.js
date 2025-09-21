@@ -392,41 +392,31 @@ if (checkCookie == -1) {
 
 
 function acceptAll() {
-   const analyticsCookies = document.getElementById('analyticsCookies');
-
-   analyticsCookies.checked = true;
-
-   saveCookiePreferences();
-
    consent.classList.remove('show');
 }
 
-function acceptNecessary() {
-   const analyticsCookies = document.getElementById('analyticsCookies');
+// function acceptNecessary() {
+//    const analyticsCookies = document.getElementById('analyticsCookies');
 
-   analyticsCookies.checked = false;
+//    analyticsCookies.checked = false;
 
-   saveCookiePreferences();
+//    saveCookiePreferences();
 
-   consent.classList.remove('show');
-}
+//    consent.classList.remove('show');
+// }
 
 function saveCookiePreferences() {
    const consent = document.getElementById('cookieConsent');
-   const analyticsCookies = document.getElementById('analyticsCookies').checked;
+   // const analyticsCookies = document.getElementById('analyticsCookies').checked;
    document.cookie = "CookieBy=LucaSimone; max-age=" + 60 * 60 * 24 * 180;
 
    localStorage.setItem('cookieConsent', 'true');
-   localStorage.setItem('analyticsCookies', analyticsCookies);
+   // localStorage.setItem('analyticsCookies', analyticsCookies);
 
    consent.classList.add('hiding');
    setTimeout(() => {
       consent.classList.remove('show', 'hiding');
    }, 300);
-
-   console.log('Preferences saved:', {
-      analytics: analyticsCookies
-   });
 }
 
 
