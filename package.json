@@ -1,6 +1,12 @@
 {
-  "dependencies": {
-    "bootstrap-icons": "^1.13.1",
-    "wavesurfer.js": "^7.10.1"
-  }
+   "dependencies": {
+      "bootstrap-icons": "^1.13.1",
+      "wavesurfer.js": "^7.10.1"
+   },
+   "scripts": {
+      "purge": "purgecss --css ./Resources/css/bootstrap/bootstrap.min.css ./Resources/css/bootstrap-icons/bootstrap-icons.min.css --content ./*.html ./Resources/js/**/*.js --output ./Resources/css/purged/"
+   },
+   "devDependencies": {
+      "purgecss": "^5.0.0"
+   }
 }

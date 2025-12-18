@@ -1,22 +1,3 @@
-// # NAVBAR TOGGLER BUTTON
-
-const toggler = document.querySelector('.navbar-toggler');
-const togglerIcon = document.querySelector('.toggler-icon');
-toggler.onclick = changeIcon;
-
-function changeIcon() {
-   if (toggler.classList.contains('collapsed')) {
-      togglerIcon.classList.add('bi-list');
-      togglerIcon.classList.remove('bi-x');
-   } else {
-      togglerIcon.classList.remove('bi-list');
-      togglerIcon.classList.add('bi-x');
-   }
-};
-
-// ! NAVBAR TOGGLER BUTTON
-
-
 // # CREDITS SECTION
 
 const credits_section = document.getElementById('credits');

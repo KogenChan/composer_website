@@ -1,3 +1,4 @@
 @import './style.min.css';
-@import './bootstrap/bootstrap.min.css';
-@import './bootstrap-icons/font/bootstrap-icons.min.css'
+@import './purged/bootstrap.min.css';
+@import './bootstrap-icons/font/bs-icons-custom.min.css';
+@import './aos.min.css';
