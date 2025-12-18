@@ -1,35 +1,62 @@
 @font-face {
-   font-display: block;
-   font-family: "bootstrap-icons";
-   src: url("./fonts/bootstrap-icons.woff2") format("woff2"),
-      url("./fonts/bootstrap-icons.woff") format("woff");
-   font-display: swap
+  font-family: "bootstrap-icons";
+  src: url("./fonts/bootstrap-icons.woff2") format("woff2"),
+       url("./fonts/bootstrap-icons.woff") format("woff");
+  font-display: swap;
 }
 
 .bi::before,
 [class^="bi-"]::before,
 [class*=" bi-"]::before {
-   display: inline-block;
-   font-family: bootstrap-icons !important;
-   font-style: normal;
-   font-weight: normal !important;
-   font-variant: normal;
-   text-transform: none;
-   line-height: 1;
-   vertical-align: -.125em;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-family: "bootstrap-icons" !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Your icons */
+/* ===== Icons actually used on the site ===== */
+
+/* Navbar / UI */
 .bi-list::before {
-   content: "\f479";
+  content: "\f479";
 }
 
+.bi-chevron-up::before {
+  content: "\f286";
+}
+
+/* Player */
 .bi-play-circle-fill::before {
-   content: "\f4f2";
+  content: "\f4f2";
 }
 
 .bi-volume-up-fill::before {
-   content: "\f610";
+  content: "\f610";
+}
+
+/* Social */
+.bi-instagram::before {
+  content: "\f437";
+}
+
+.bi-linkedin::before {
+  content: "\f472";
+}
+
+.bi-cloud::before {
+  content: "\f38d";
+}
+
+.bi-pause-circle-fill::before {
+  content: "\f4c1";
+}
+
+.bi-volume-mute-fill::before {
+  content: "\f60c";
 }

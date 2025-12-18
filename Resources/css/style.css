@@ -203,8 +203,12 @@ section {
    transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.fa-soundcloud {
+.soundcloud {
    padding-top: 6px;
+   margin: auto;
+   transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+   width: 36px;
+   height: 36px;
 }
 
 .navbar-toggler {
@@ -466,8 +470,6 @@ section {
 }
 
 .portrait {
-   width: auto;
-   max-width: 100%;
    max-height: 60vh;
 }
 

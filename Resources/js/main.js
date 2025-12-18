@@ -5,7 +5,7 @@ let delay = 0;
 
 async function getCredits() {
    try {
-      const response = await fetch('../credits.min.json');
+      const response = await fetch('https://lucasimone.net/credits.min.json');
       if (!response.ok) {
          throw new Error(`HTTP error! Status: ${response.status}`);
       }
