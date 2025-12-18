@@ -364,12 +364,12 @@ function showCookieConsent() {
    consent.classList.add('show');
 }
 
-// Check if cookie consent was previously given
-let checkCookie = document.cookie.indexOf("CookieBy=LucaSimone");
-if (checkCookie == -1) {
-   // Show banner after a short delay
-   setTimeout(showCookieConsent, 1000);
-}
+// // Check if cookie consent was previously given
+// let checkCookie = document.cookie.indexOf("CookieBy=LucaSimone");
+// if (checkCookie == -1) {
+//    // Show banner after a short delay
+//    setTimeout(showCookieConsent, 1000);
+// }
 
 
 function acceptAll() {
@@ -386,19 +386,19 @@ function acceptAll() {
 //    consent.classList.remove('show');
 // }
 
-function saveCookiePreferences() {
-   const consent = document.getElementById('cookieConsent');
-   // const analyticsCookies = document.getElementById('analyticsCookies').checked;
-   document.cookie = "CookieBy=LucaSimone; max-age=" + 60 * 60 * 24 * 180;
+// function saveCookiePreferences() {
+//    const consent = document.getElementById('cookieConsent');
+//    // const analyticsCookies = document.getElementById('analyticsCookies').checked;
+//    document.cookie = "CookieBy=LucaSimone; max-age=" + 60 * 60 * 24 * 180;
 
-   localStorage.setItem('cookieConsent', 'true');
-   // localStorage.setItem('analyticsCookies', analyticsCookies);
+//    localStorage.setItem('cookieConsent', 'true');
+//    // localStorage.setItem('analyticsCookies', analyticsCookies);
 
-   consent.classList.add('hiding');
-   setTimeout(() => {
-      consent.classList.remove('show', 'hiding');
-   }, 300);
-}
+//    consent.classList.add('hiding');
+//    setTimeout(() => {
+//       consent.classList.remove('show', 'hiding');
+//    }, 300);
+// }
 
 
 // ! Back to top BTN
