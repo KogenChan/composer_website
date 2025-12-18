@@ -83,30 +83,35 @@
    font-family: "Wix Display";
    src: url('../fonts/WixMadeforDisplay.ttf');
    font-optical-sizing: auto;
+   font-display: swap
 }
 
 @font-face {
    font-family: "Wix Text";
    src: url('../fonts/WixMadeforText-VariableFont_wght.ttf');
    font-optical-sizing: auto;
+   font-display: swap
 }
 
 @font-face {
    font-family: "Wix Text Italic";
    src: url('../fonts/WixMadeforText-Italic-VariableFont_wght.ttf');
    font-optical-sizing: auto;
+   font-display: swap
 }
 
 @font-face {
    font-family: "Rubik";
    src: url('../fonts/Rubik-VariableFont_wght.ttf');
    font-optical-sizing: auto;
+   font-display: swap
 }
 
 @font-face {
    font-family: "Rubik Italic";
    src: url('../fonts/Rubik-Italic-VariableFont_wght.ttf');
    font-optical-sizing: auto;
+   font-display: swap
 }
 
 .wix-display {
@@ -446,7 +451,6 @@ section {
 
 .credit-img {
    width: 100%;
-   padding: 0px 4px;
 }
 
 .credits-role {

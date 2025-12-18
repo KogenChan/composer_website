@@ -5,7 +5,7 @@ let delay = 0;
 
 async function getCredits() {
    try {
-      const response = await fetch('https://lucasimone.net/credits.min.json');
+      const response = await fetch('../credits.min.json');
       if (!response.ok) {
          throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -14,7 +14,7 @@ async function getCredits() {
 
       credits.forEach(credit => {
          credits_section.innerHTML += `
-                <div class="col-6 col-lg-4 col-xl-3 pb-2 pb-md-4 px-1 d-flex flex-column align-items-center" 
+                <div class="col-6 col-lg-4 col-xl-3 pb-2 pb-md-4 d-flex flex-column align-items-center" 
                     data-aos="fade-left" 
                     data-aos-duration="1500" 
                     data-aos-delay="${delay}">

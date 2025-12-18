@@ -1,27 +1,27 @@
 [
    {
       "name": "Forgotten - Whispers from the Ashes",
-      "img": "./Resources/media/forgotten.avif",
+      "img": "./Resources/media/forgotten.webp",
       "role": "Composer, Sound Designer"
    },
    {
       "name": "The Ferryman",
-      "img": "./Resources/media/ferryman.avif",
+      "img": "./Resources/media/ferryman.webp",
       "role": "Composer"
    },
    {
       "name": "Threaded Memories",
-      "img": "./Resources/media/memories.avif",
+      "img": "./Resources/media/memories.webp",
       "role": "Composer, Sound Designer"
    },
    {
       "name": "The Sleeper Beneath",
-      "img": "./Resources/media/sleeper.avif",
+      "img": "./Resources/media/sleeper.webp",
       "role": "Composer, Sound Designer"
    },
    {
       "name": "Mediapep",
-      "img": "./Resources/media/mediapep.avif",
+      "img": "./Resources/media/mediapep.webp",
       "role": "Composer"
    }
 ]
