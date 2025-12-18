@@ -24,35 +24,68 @@
    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
    <link rel="manifest" href="/site.webmanifest">
    <style>
+      :root {
+         --accent: #fff6c8;
+         --secondary: hsl(0, 0%, 9%);
+      }
+      
+      * { box-sizing: border-box; }
+      
       body {
          margin: 0;
          padding: 0;
          font-family: system-ui, -apple-system, sans-serif;
-         background: #000
+         background: #000;
       }
       
       .header {
-         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./Resources/media/cover.avif') center/cover;
-         min-height: 100vh
+         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./Resources/media/cover.avif') 85% 50%/cover no-repeat;
+         min-height: 100vh;
       }
       
-      .wix-display {
-         font-family: 'Wix Madefor Display', sans-serif
-      }
-      
-      .text-white {
-         color: #fff
-      }
-      
-      .accent-text {
-         color: #your-accent-color
+      .container {
+         width: 100%;
+         padding: 0 0.75rem;
+         margin: 0 auto;
+         max-width: 1360px;
       }
       
       .navbar {
          display: flex;
+         align-items: center;
          justify-content: space-between;
-         align-items: center
+         padding: 0.5rem 0;
       }
+      
+      @media (min-width: 992px) {
+         .d-lg-none { display: none; }
+         .d-none { display: none; }
+      }
+      
+      .text-white { color: #fff; }
+      .text-shadow { text-shadow: 0 0 3px #000; }
+      .accent-text { color: var(--accent); }
+      
+      h1, h3 { 
+         margin: 0;
+         font-weight: 500;
+         line-height: 1.2;
+      }
+      
+      .cookie-consent {
+         position: fixed;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         background: #021a22ee;
+         color: #fff;
+         padding: 1rem;
+         z-index: 9999;
+         transform: translateY(100%);
+         transition: transform 0.3s ease-in-out;
+      }
+      
+      .cookie-consent.show { transform: translateY(0); }
    </style>
    <link rel="preload" fetchpriority="high" href="./Resources/media/cover.avif" as="image" type="image/avif">
    <link rel="preload" href="./Resources/css/app.min.css" as="style">
