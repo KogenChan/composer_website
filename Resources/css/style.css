@@ -471,6 +471,8 @@ section {
 
 .portrait {
    max-height: 60vh;
+   max-width: 100%;
+   object-fit: contain;
 }
 
 
