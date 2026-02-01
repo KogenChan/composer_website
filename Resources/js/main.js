@@ -14,7 +14,7 @@ async function getCredits() {
 
       credits.forEach(credit => {
          credits_section.innerHTML += `
-                <div class="col-6 col-lg-4 col-xl-3 pb-2 pb-md-4 d-flex flex-column align-items-center" 
+                <div class="col-6 col-lg-4 col-xl-3 pb-3 pb-md-4 d-flex flex-column align-items-center" 
                     data-aos="fade-left" 
                     data-aos-duration="1500" 
                     data-aos-delay="${delay}">
