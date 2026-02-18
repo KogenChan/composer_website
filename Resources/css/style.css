@@ -170,7 +170,7 @@ section {
 /* ! HEADER */
 
 .header {
-   background-image: url("../media/cover.avif");
+   background-image: url("../media/cover.webp");
    background-position: 85% 50%;
    background-repeat: no-repeat;
    background-size: cover;
