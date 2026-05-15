@@ -1,5 +1,10 @@
 [
    {
+      "name": "Superhuman",
+      "img": "./Resources/media/human.webp",
+      "role": "Composer"
+   },
+   {
       "name": "Forgotten - Whispers from the Ashes",
       "img": "./Resources/media/forgotten.webp",
       "role": "Composer, Sound Designer"
