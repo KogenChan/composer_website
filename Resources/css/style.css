@@ -195,20 +195,27 @@ section {
 .nav-link {
    transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1) !important;
    text-shadow: 0 0 3px var(--secondary);
+   padding-left: 0 !important;
+   padding-right: 0 !important;
 }
 
 .nav-icon {
    font-size: 24px;
-   margin: auto;
    transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .soundcloud {
-   padding-top: 6px;
-   margin: auto;
    transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1);
-   width: 36px;
-   height: 36px;
+   width: 30px;
+   height: 30px;
+   margin-top: 2px;
+}
+
+.spotify {
+   transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1);
+   width: 27px;
+   height: 27px;
+   margin-top: 4px;
 }
 
 .navbar-toggler {
@@ -228,7 +235,6 @@ section {
 .opacity {
    opacity: 0;
 }
-
 
 /* !PORTFOLIO */
 
@@ -693,10 +699,6 @@ form {
 
    .top-btn:hover {
       transform: translate(40px);
-   }
-
-   .nav-link {
-      margin: auto;
    }
 
    .nav-link:hover {
