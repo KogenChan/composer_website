@@ -5,11 +5,6 @@
         "file": "Resources/media/portfolio/neuro.mp3"
     },
     {
-        "name": "Looming Danger",
-        "genre": "Sci-fi/Orchestral Hybrid",
-        "file": "Resources/media/portfolio/danger.mp3"
-    },
-    {
         "name": "Spring",
         "genre": "Drama/Classical Hybrid",
         "file": "Resources/media/portfolio/spring.mp3"
@@ -20,9 +15,9 @@
         "file": "Resources/media/portfolio/solar.mp3"
     },
     {
-        "name": "The Wolf Left Behind",
-        "genre": "Fantasy/Action Orchestral",
-        "file": "Resources/media/portfolio/wolf.mp3"
+        "name": "The War to Come",
+        "genre": "Fantasy/Orchestral",
+        "file": "Resources/media/portfolio/war.mp3"
     },
     {
         "name": "Steel Woods",
@@ -30,9 +25,19 @@
         "file": "Resources/media/portfolio/woods.mp3"
     },
     {
-        "name": "Insurgence",
-        "genre": "Trailer/Hybrid Orchestral Action",
-        "file": "Resources/media/portfolio/surge.mp3"
+        "name": "Daydreaming",
+        "genre": "Drama/Classical",
+        "file": "Resources/media/portfolio/dream.mp3"
+    },
+    {
+        "name": "Looming Danger",
+        "genre": "Sci-fi/Orchestral Hybrid",
+        "file": "Resources/media/portfolio/danger.mp3"
+    },
+    {
+        "name": "Stranded",
+        "genre": "Drama/Classical Hybrid",
+        "file": "Resources/media/portfolio/strand.mp3"
     },
     {
         "name": "Twins",
@@ -40,13 +45,8 @@
         "file": "Resources/media/portfolio/twins.mp3"
     },
     {
-        "name": "Soy Sauce",
-        "genre": "Hybrid/Acoustic",
-        "file": "Resources/media/portfolio/soy.mp3"
-    },
-    {
-        "name": "Stranded",
-        "genre": "Drama/Classical Hybrid",
-        "file": "Resources/media/portfolio/strand.mp3"
+        "name": "Insurgence",
+        "genre": "Trailer/Hybrid Orchestral Action",
+        "file": "Resources/media/portfolio/surge.mp3"
     }
 ]

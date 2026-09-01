@@ -41,7 +41,7 @@ const playlist_section = document.getElementById('playlist');
 
 async function getPlaylist() {
    try {
-      const response = await fetch('https://evelynsimone.com/playlist-min.json');
+      const response = await fetch('https://evelynsimone.com/playlist.min.json');
       if (!response.ok) {
          throw new Error(`HTTP error! Status: ${response.status}`);
       }
